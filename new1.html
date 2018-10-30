@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+img.wink
+{
+  margin-right:100px ;
+  float:left  ;
+}
+img.like
+{
+  float:right ;
+  margin-left:100px;
+}
+a,button
+{
+  text-decoration:none ;
+  text-align:center ;
+  width:130px ;
+  padding:6px ;
+  color:#FFFFFF;
+  background-color:#98bf21;
+}
+a:hover,a:active,button:hover,button:active
+{
+	background-color:#7A991A;
+}
+</style>
+<script type='text/javascript'>
+function showtime()
+{
+  var nowtime=new Date() ;
+  var year=nowtime.getFullYear();
+  var month=nowtime.getMonth() ;
+  var day=nowtime.getDate() ;
+  var hours=nowtime.getHours() ;
+  var minutes=nowtime.getMinutes() ;
+  var seconds=nowtime.getSeconds() ;
+  document.getElementById("mytime").innerText=year+"年"+month+"月"+day+"日"+hours+":"+minutes+":"+seconds ;
+}
+setInterval("showtime()",1000) ;
+function checkpass()
+{
+   alert("密码输入不一致") ;
+   var pass1=document.getElementById("in-pass") ;
+   var pass2=document.getElementById("repass") ;
+   if(pass1.value!=pass2.value)
+   {
+      alert("密码输入不一致") ;
+	  return false ;
+   }
+  var trpas=document.getElementById("md-pass") ;
+   trpas.value=toMD5(pass1.value) ;
+   alert("密码输入不一致") ;
+   return true ;
+ }
+function changeye()
+{
+   var fa=document.getElementById("what") ;
+   var pi=document.createElement("br") ;
+   var arr=document.createElement("form") ; 
+   arr.id="test-form" ;
+   arr.method="post" ;
+   arr.onsubmit="return checkpass()" ;
+   fa.appendChild(arr) ; 
+   var user=document.createElement("input") ;
+   user.type="text" ;
+   user.name="username" ;
+   arr.appendChild(user) ;
+   var pass=document.createElement("input") ;
+   pass.type="password" ;
+   pass.id="in-pass" ;
+   pass.name="password" ;
+   arr.appendChild(pass) ;
+   arr.appendChild(pi) ;
+   var repass=document.createElement("input") ;
+   repass.type="password" ;
+   repass.id="repass" ;
+   arr.appendChild(repass) ;
+   arr.appendChild(pi) ;
+  /* var hipass=document.createElement("input") ;
+   hipass.type="hidden" ;
+   hipass.id="md-pass" ;
+   hipass.name="password" ;
+   arr.appendChild(hipass) ;*/
+   var sub=document.createElement("button") ;
+   sub.type="submit" ;
+   sub.innerText="点我提交" ;
+   arr.appendChild(sub) ;
+}
+</script>
+</head>
+<body>
+<img src="1539937551861.jpeg" alt="wink" class="wink" width="300" height="300"  >
+<img src="1539937524314.jpeg" alt="likeyou" class="like" width="300" height="300" >
+<h2>新闻学院传播1801 朱子鸿 </h2>
+<p>我爱这风，这广阔的、转化着的风，它走在春天之前，我爱这风的声响和它遥远的姿势，它穿行万物，如入虚无。
+        ——里尔克</p>
+<a href="https://weibo.com/1703010470/Gymjtf05f?type=comment#_rnd1540303441429" target="_blank" >点我看上句出处</a>
+<br><br>
+<div id = "what" >
+<button id="firstbu" type="button" onclick="changeye()">点我展开</button>
+</div>
+<script>
+var fa=document.getElementById("what") ;
+   var pi=document.createElement("br") ;
+   var arr=document.createElement("form") ; 
+   arr.id="test-form" ;
+   arr.method="post" ;
+   arr.onsubmit="return checkpass()" ;
+   fa.appendChild(arr) ; 
+   var user=document.createElement("input") ;
+   user.type="text" ;
+   user.name="username" ;
+   arr.appendChild(user) ;
+   var pass=document.createElement("input") ;
+   pass.type="password" ;
+   pass.id="in-pass" ;
+   pass.name="password" ;
+   arr.appendChild(pass) ;
+   arr.appendChild(pi) ;
+   var repass=document.createElement("input") ;
+   repass.type="password" ;
+   repass.id="repass" ;
+   arr.appendChild(repass) ;
+   arr.appendChild(pi) ;
+   var hipass=document.createElement("input") ;
+   hipass.type="hidden" ;
+   hipass.id="md-pass" ;
+   hipass.name="password" ;
+   arr.appendChild(hipass) ;
+   var sub=document.createElement("button") ;
+   sub.type="submit" ;
+   sub.innerText="点我提交" ;
+   arr.appendChild(sub) ;
+ </script>
+<br><br>
+<span id="mytime"></span>
+</body>
+</html>
